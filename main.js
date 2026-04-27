@@ -1,122 +1,101 @@
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href'))
-      .scrollIntoView({ behavior: 'smooth' });
-  });
-});
+document.addEventListener("DOMContentLoaded", () => {
 
 /* ===== DATA ===== */
 
 const courses = [
   {
-    name: "Business Analytics (A+)",
-    skills: ["Data Analysis", "EDA"],
-    description: "Analyzed business data and generated insights."
+    name: "Business Analytics",
+    description: "Data analysis and insights",
+    skills: ["EDA", "Analysis"]
   },
   {
-    name: "Linear Algebra (A)",
-    skills: ["Matrix", "Logic Thinking"],
-    description: "Built strong analytical foundations."
-  },
-  {
-    name: "Python",
-    skills: ["Data Processing"],
-    description: "Used for data cleaning and analysis."
+    name: "Linear Algebra",
+    description: "Math foundation",
+    skills: ["Matrix"]
   }
 ];
 
 const projects = [
   {
-    name: "Student Dropout Prediction Model",
-    description: "Analyzed 76,000+ student data and built ML models.",
-    highlights: [
-      "Logistic Regression, KNN, Decision Tree, Random Forest",
-      "EDA & data cleaning",
-      "Model evaluation (Accuracy, Precision, Recall)"
-    ]
+    name: "Student Dropout Prediction",
+    description: "76,000+ data, ML models",
+    highlights: ["Logistic Regression", "KNN", "Random Forest"]
   },
   {
-    name: "INPet Pet Care Platform",
-    description: "Startup project - 3rd place in competition.",
-    highlights: [
-      "SWOT & STP analysis",
-      "Product feature design",
-      "User targeting & positioning"
-    ]
-  },
-  {
-    name: "Nissan Campus Ambassador",
-    description: "Analyzed youth market and optimized content strategy.",
-    highlights: [
-      "10+ data sources",
-      "8,000+ views content",
-      "Data-driven marketing"
-    ]
+    name: "INPet Platform",
+    description: "Startup competition (3rd place)",
+    highlights: ["SWOT", "STP"]
   }
 ];
 
 const skills = {
   Programming: ["Python", "SQL"],
-  "Data Analysis": ["EDA", "Data Cleaning"],
-  "AI / ML": ["Logistic Regression", "KNN", "Decision Tree", "Random Forest"],
   Tools: ["Excel"],
-  Language: ["English (TOEIC 865)", "Chinese"]
+  ML: ["Decision Tree", "Random Forest"]
 };
 
-/* ===== RENDER COURSES ===== */
+/* ===== COURSES ===== */
 
 const coursesContainer = document.getElementById("courses-list");
 
-courses.forEach(course => {
+courses.forEach(c => {
   const div = document.createElement("div");
   div.className = "card";
-
   div.innerHTML = `
-    <div class="card-title">${course.name}</div>
-    <div>${course.description}</div>
-    <div>
-      ${course.skills.map(s => `<span class="tag">${s}</span>`).join("")}
-    </div>
+    <h3>${c.name}</h3>
+    <p>${c.description}</p>
+    ${c.skills.map(s => `<span class="tag">${s}</span>`).join("")}
   `;
-
   coursesContainer.appendChild(div);
 });
 
-/* ===== RENDER PROJECTS ===== */
+/* ===== PROJECTS ===== */
 
 const projectsContainer = document.getElementById("projects-list");
 
-projects.forEach(project => {
+projects.forEach(p => {
   const div = document.createElement("div");
   div.className = "card";
-
   div.innerHTML = `
-    <div class="card-title">${project.name}</div>
-    <div>${project.description}</div>
-    <ul>
-      ${project.highlights.map(h => `<li>${h}</li>`).join("")}
-    </ul>
+    <h3>${p.name}</h3>
+    <p>${p.description}</p>
+    <ul>${p.highlights.map(h => `<li>${h}</li>`).join("")}</ul>
   `;
-
   projectsContainer.appendChild(div);
 });
 
-/* ===== RENDER SKILLS ===== */
+/* ===== SKILLS ===== */
 
 const skillsContainer = document.getElementById("skills-list");
 
-for (let category in skills) {
+for (let key in skills) {
   const div = document.createElement("div");
   div.className = "card";
-
   div.innerHTML = `
-    <div class="card-title">${category}</div>
-    <div>
-      ${skills[category].map(s => `<span class="tag">${s}</span>`).join("")}
-    </div>
+    <h3>${key}</h3>
+    ${skills[key].map(s => `<span class="tag">${s}</span>`).join("")}
   `;
-
   skillsContainer.appendChild(div);
 }
+
+/* ===== Scroll Animation ===== */
+
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+});
+
+sections.forEach(sec => {
+  sec.style.opacity = 0;
+  sec.style.transform = "translateY(30px)";
+  sec.style.transition = "0.6s";
+  observer.observe(sec);
+});
+
+});

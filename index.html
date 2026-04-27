@@ -5,168 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Zihyou Chen Portfolio</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", "Noto Sans TC", sans-serif;
-  background: linear-gradient(120deg, #f5f1e8, #ebe6dc);
-  color: #111;
-}
-
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* NAV */
-.navbar {
-  position: sticky;
-  top: 0;
-  background: rgba(245,241,232,0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #eee;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 0;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #555;
-}
-
-/* HERO */
-.hero {
-  padding: 120px 0;
-  text-align: center;
-}
-
-.hero-name {
-  font-size: 56px;
-}
-
-.hero-tagline {
-  margin-top: 10px;
-  color: #666;
-}
-
-/* BUTTON */
-.btn {
-  padding: 12px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  margin: 10px;
-  display: inline-block;
-}
-
-.primary {
-  background: #111;
-  color: white;
-}
-
-.secondary {
-  border: 1px solid #111;
-}
-
-/* STATS */
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin: 40px 0;
-}
-
-.stat h2 {
-  font-size: 28px;
-}
-
-.stat p {
-  font-size: 12px;
-  color: #666;
-}
-
-/* SECTION */
-section {
-  padding: 80px 0;
-}
-
-.section-title {
-  margin-bottom: 20px;
-}
-
-/* GRID */
-#courses-list,
-#projects-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-
-/* CARD */
-.card {
-  padding: 20px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.8);
-  border: 1px solid #eee;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-.tag {
-  background: #eee;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 20px;
-  display: inline-block;
-  font-size: 12px;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .hero-name {
-    font-size: 36px;
-  }
-
-  .stats {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav class="navbar">
   <div class="container nav-container">
     <div class="logo">Zihyou Chen</div>
 
     <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#courses">Courses</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -174,59 +23,25 @@ section {
   </div>
 </nav>
 
-<!-- HERO -->
-<section id="hero" class="hero">
+<section class="hero">
   <div class="container">
-
     <h1 class="hero-name">Zihyou Chen</h1>
-
     <p class="hero-tagline">
       Turning data into actionable business insights through analytics and AI.
     </p>
-
-    <div class="stats">
-      <div class="stat">
-        <h2>76,000+</h2>
-        <p>Data Processed</p>
-      </div>
-      <div class="stat">
-        <h2>4</h2>
-        <p>ML Models</p>
-      </div>
-      <div class="stat">
-        <h2>8,000+</h2>
-        <p>Marketing Reach</p>
-      </div>
-    </div>
-
-    <a href="#projects" class="btn primary">View Work</a>
-    <a href="#contact" class="btn secondary">Contact Me</a>
-
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <h2 class="section-title">About Me</h2>
     <p>
-      I am a Business Administration student at National Taipei University,
-      specializing in business analytics and AI applications.
-      I have experience building predictive models using real-world datasets (76,000+ records),
-      and transforming data into actionable business insights.
+      Business Administration student at National Taipei University.
+      Focused on data analysis, machine learning, and business insights.
     </p>
   </div>
 </section>
 
-<!-- COURSES -->
-<section id="courses">
-  <div class="container">
-    <h2 class="section-title">Courses</h2>
-    <div id="courses-list"></div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
 <section id="projects">
   <div class="container">
     <h2 class="section-title">Projects</h2>
@@ -234,7 +49,6 @@ section {
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <h2 class="section-title">Skills</h2>
@@ -242,7 +56,6 @@ section {
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <h2 class="section-title">Contact</h2>
@@ -250,102 +63,7 @@ section {
   </div>
 </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-/* DATA */
-
-const courses = [
-  {
-    name: "Business Analytics",
-    description: "Data analysis and insights",
-    skills: ["EDA", "Analysis"]
-  },
-  {
-    name: "Python",
-    description: "Data processing",
-    skills: ["Data Cleaning"]
-  }
-];
-
-const projects = [
-  {
-    name: "Student Dropout Prediction",
-    description: "76,000+ data, ML models",
-    highlights: ["Logistic Regression", "KNN", "Random Forest"]
-  },
-  {
-    name: "INPet Platform",
-    description: "Startup competition (3rd place)",
-    highlights: ["SWOT", "STP"]
-  }
-];
-
-const skills = {
-  Programming: ["Python", "SQL"],
-  Tools: ["Excel"],
-  ML: ["Decision Tree", "Random Forest"]
-};
-
-/* RENDER */
-
-const coursesContainer = document.getElementById("courses-list");
-courses.forEach(c => {
-  const div = document.createElement("div");
-  div.className = "card";
-  div.innerHTML = `
-    <h3>${c.name}</h3>
-    <p>${c.description}</p>
-    ${c.skills.map(s => `<span class="tag">${s}</span>`).join("")}
-  `;
-  coursesContainer.appendChild(div);
-});
-
-const projectsContainer = document.getElementById("projects-list");
-projects.forEach(p => {
-  const div = document.createElement("div");
-  div.className = "card";
-  div.innerHTML = `
-    <h3>${p.name}</h3>
-    <p>${p.description}</p>
-    <ul>${p.highlights.map(h => `<li>${h}</li>`).join("")}</ul>
-  `;
-  projectsContainer.appendChild(div);
-});
-
-const skillsContainer = document.getElementById("skills-list");
-for (let key in skills) {
-  const div = document.createElement("div");
-  div.className = "card";
-  div.innerHTML = `
-    <h3>${key}</h3>
-    ${skills[key].map(s => `<span class="tag">${s}</span>`).join("")}
-  `;
-  skillsContainer.appendChild(div);
-}
-
-/* 滾動動畫 */
-
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-});
-
-sections.forEach(sec => {
-  sec.style.opacity = 0;
-  sec.style.transform = "translateY(30px)";
-  sec.style.transition = "0.6s";
-  observer.observe(sec);
-});
-
-});
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>

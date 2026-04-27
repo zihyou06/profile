@@ -6,87 +6,161 @@
   <title>Zihyou Chen Portfolio</title>
 
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f7f3ee;
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .navbar {
+      background: #fff;
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 0;
+    }
+
+    .hero-name {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero-tagline {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .primary {
+      background: #d8cfc4;
+      color: black;
+    }
+
+    .secondary {
+      border: 1px solid #aaa;
+    }
+
+    .section-title {
+      margin-top: 60px;
+      font-size: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+
+    .card-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eee;
+      padding: 5px 10px;
+      margin: 5px 5px 0 0;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <nav class="navbar">
-    <div class="container nav-container">
-      <div class="logo">Zihyou Chen</div>
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">Zihyou Chen</div>
 
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <section id="hero" class="hero">
-    <div class="container hero-content">
-      <h1 class="hero-name">Zihyou Chen</h1>
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-name">Zihyou Chen</h1>
+    <p class="hero-tagline">
+      Turning data into actionable business insights through analytics and AI.
+    </p>
 
-      <p class="hero-tagline">
-        Turning data into actionable business insights through analytics and AI.
-      </p>
+    <a href="#projects" class="btn primary">View Work</a>
+    <a href="#contact" class="btn secondary">Contact Me</a>
+  </div>
+</section>
 
-      <div class="hero-buttons">
-        <a href="#about" class="btn primary">View Work</a>
-        <a href="#contact" class="btn secondary">Contact Me</a>
-      </div>
-    </div>
-  </section>
+<section id="about" class="container">
+  <h2 class="section-title">About Me</h2>
+  <p>
+    I am a Business Administration student at National Taipei University, specializing in business analytics and AI applications.
+    I have hands-on experience in data analysis and machine learning, including building predictive models using real-world datasets (76,000+ records).
+    My work focuses on transforming data into actionable insights for business decision-making.
+  </p>
+</section>
 
-  <section id="about" class="about">
-    <div class="container text-container">
-      <h2 class="section-title">About Me</h2>
+<section id="courses" class="container">
+  <h2 class="section-title">Courses</h2>
+  <div id="courses-list"></div>
+</section>
 
-      <p class="about-text">
-       I am a Business Administration student at National Taipei University, specializing in business analytics and AI applications. I have developed strong analytical skills through coursework in data analysis and Python, and I am particularly interested in applying data-driven insights to solve real-world business problems. I am eager to continue learning and contribute in dynamic, data-driven environments
-      </p>
+<section id="projects" class="container">
+  <h2 class="section-title">Projects</h2>
+  <div id="projects-list"></div>
+</section>
 
-    </div>
-  </section>
+<section id="skills" class="container">
+  <h2 class="section-title">Skills</h2>
+  <div id="skills-list"></div>
+</section>
 
-  <!-- Courses -->
-  <section id="courses">
-    <div class="container text-container">
-      <h2 class="section-title">Courses</h2>
-      <div id="courses-list"></div>
-    </div>
-  </section>
+<section id="contact" class="container">
+  <h2 class="section-title">Contact</h2>
+  <p>Email: ziihycc@gmail.com</p>
+</section>
 
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container text-container">
-      <h2 class="section-title">Projects</h2>
-      <div id="projects-list"></div>
-    </div>
-  </section>
+<script src="main.js"></script>
 
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container text-container">
-      <h2 class="section-title">Skills</h2>
-      <div id="skills-list"></div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="container text-container">
-      <h2 class="section-title">Contact</h2>
-
-      <div class="contact-list">
-        <p>Email: <a href="mailto:ziihycc@gmail.com">ziihycc@gmail.com</a></p>
-        <p>GitHub: <a href="#">Your GitHub</a></p>
-        <p>LinkedIn: <a href="#">Your LinkedIn</a></p>
-      </div>
-    </div>
-  </section>
-
-  <script src="main.js"></script>
 </body>
 </html>

@@ -1,30 +1,58 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-const projects = [
+/* Courses */
+const courses = [
   {
-    name: "Student Dropout Prediction",
-    desc: "76,000+ data, ML models",
-    list: ["Logistic Regression", "KNN", "Random Forest"]
+    name: "Business Analytics (A+)",
+    desc: "Data analysis and insights",
+    skills: ["EDA", "Analysis"]
   },
   {
-    name: "INPet Platform",
-    desc: "Startup competition (3rd place)",
-    list: ["SWOT", "STP"]
+    name: "Linear Algebra (A)",
+    desc: "Mathematical foundation",
+    skills: ["Matrix"]
   },
   {
-    name: "Nissan Campus Ambassador",
-    desc: "Marketing & data-driven strategy",
-    list: ["10+ data sources", "8,000+ views", "Content optimization"]
+    name: "Python",
+    desc: "Data processing",
+    skills: ["Cleaning"]
   }
 ];
 
-const skills = {
-  Programming: ["Python", "SQL"],
-  Tools: ["Excel"],
-  ML: ["Decision Tree", "Random Forest"]
-};
+const coursesContainer = document.getElementById("courses-list");
 
-/* PROJECTS */
+courses.forEach(c => {
+  const div = document.createElement("div");
+  div.className = "course-card";
+
+  div.innerHTML = `
+    <h4>${c.name}</h4>
+    <p>${c.desc}</p>
+    ${c.skills.map(s => `<span class="tag">${s}</span>`).join("")}
+  `;
+
+  coursesContainer.appendChild(div);
+});
+
+/* Projects */
+const projects = [
+  {
+    name: "Student Dropout Prediction",
+    desc: "76,000+ data, machine learning models",
+    list: ["Logistic Regression", "KNN", "Random Forest"]
+  },
+  {
+    name: "Nissan Campus Ambassador",
+    desc: "Marketing strategy using data analysis",
+    list: ["10+ data sources", "8,000+ views", "Optimization"]
+  },
+  {
+    name: "INPet Platform",
+    desc: "Startup project (3rd place)",
+    list: ["SWOT", "STP"]
+  }
+];
+
 const projectContainer = document.getElementById("projects-list");
 
 projects.forEach(p => {
@@ -40,7 +68,13 @@ projects.forEach(p => {
   projectContainer.appendChild(div);
 });
 
-/* SKILLS */
+/* Skills */
+const skills = {
+  Programming: ["Python", "SQL"],
+  Analysis: ["EDA", "Cleaning"],
+  ML: ["Decision Tree", "Random Forest"]
+};
+
 const skillsContainer = document.getElementById("skills-list");
 
 for (let key in skills) {

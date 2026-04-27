@@ -2,8 +2,8 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    target.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(this.getAttribute('href'))
+      .scrollIntoView({ behavior: 'smooth' });
   });
 });
 
@@ -11,34 +11,58 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const courses = [
   {
-    name: "Business Analytics",
-    skills: ["Data Analysis", "Excel"],
-    description: "Learned to analyze business data and derive actionable insights."
+    name: "Business Analytics (A+)",
+    skills: ["Data Analysis", "EDA"],
+    description: "Analyzed business data and generated insights."
   },
   {
-    name: "Linear Algebra",
-    skills: ["Matrix Operations"],
-    description: "Built mathematical foundations for analytical thinking."
+    name: "Linear Algebra (A)",
+    skills: ["Matrix", "Logic Thinking"],
+    description: "Built strong analytical foundations."
   },
   {
-    name: "Information Management",
-    skills: ["Data Organization"],
-    description: "Developed skills in managing and structuring information."
-  },
-  {
-    name: "International Finance",
-    skills: ["Financial Analysis"],
-    description: "Understood basic global finance concepts."
+    name: "Python",
+    skills: ["Data Processing"],
+    description: "Used for data cleaning and analysis."
   }
 ];
 
-const projects = [];
+const projects = [
+  {
+    name: "Student Dropout Prediction Model",
+    description: "Analyzed 76,000+ student data and built ML models.",
+    highlights: [
+      "Logistic Regression, KNN, Decision Tree, Random Forest",
+      "EDA & data cleaning",
+      "Model evaluation (Accuracy, Precision, Recall)"
+    ]
+  },
+  {
+    name: "INPet Pet Care Platform",
+    description: "Startup project - 3rd place in competition.",
+    highlights: [
+      "SWOT & STP analysis",
+      "Product feature design",
+      "User targeting & positioning"
+    ]
+  },
+  {
+    name: "Nissan Campus Ambassador",
+    description: "Analyzed youth market and optimized content strategy.",
+    highlights: [
+      "10+ data sources",
+      "8,000+ views content",
+      "Data-driven marketing"
+    ]
+  }
+];
 
 const skills = {
-  Programming: [],
-  "AI / ML": [],
-  Web: [],
-  Tools: ["Excel"]
+  Programming: ["Python", "SQL"],
+  "Data Analysis": ["EDA", "Data Cleaning"],
+  "AI / ML": ["Logistic Regression", "KNN", "Decision Tree", "Random Forest"],
+  Tools: ["Excel"],
+  Language: ["English (TOEIC 865)", "Chinese"]
 };
 
 /* ===== RENDER COURSES ===== */
@@ -51,9 +75,9 @@ courses.forEach(course => {
 
   div.innerHTML = `
     <div class="card-title">${course.name}</div>
-    <div class="card-text">${course.description}</div>
+    <div>${course.description}</div>
     <div>
-      ${course.skills.map(skill => `<span class="tag">${skill}</span>`).join("")}
+      ${course.skills.map(s => `<span class="tag">${s}</span>`).join("")}
     </div>
   `;
 
@@ -64,24 +88,33 @@ courses.forEach(course => {
 
 const projectsContainer = document.getElementById("projects-list");
 
-if (projects.length === 0) {
-  projectsContainer.innerHTML = `<p class="card-text">Coming soon.</p>`;
-}
+projects.forEach(project => {
+  const div = document.createElement("div");
+  div.className = "card";
+
+  div.innerHTML = `
+    <div class="card-title">${project.name}</div>
+    <div>${project.description}</div>
+    <ul>
+      ${project.highlights.map(h => `<li>${h}</li>`).join("")}
+    </ul>
+  `;
+
+  projectsContainer.appendChild(div);
+});
 
 /* ===== RENDER SKILLS ===== */
 
 const skillsContainer = document.getElementById("skills-list");
 
 for (let category in skills) {
-  if (skills[category].length === 0) continue;
-
   const div = document.createElement("div");
-  div.className = "skills-category";
+  div.className = "card";
 
   div.innerHTML = `
-    <h3>${category}</h3>
+    <div class="card-title">${category}</div>
     <div>
-      ${skills[category].map(skill => `<span class="tag">${skill}</span>`).join("")}
+      ${skills[category].map(s => `<span class="tag">${s}</span>`).join("")}
     </div>
   `;
 
